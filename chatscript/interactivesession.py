@@ -1,4 +1,5 @@
 import cmd, sys, argparse
+import six
 
 from .server import ChatScriptServer
 
@@ -32,14 +33,14 @@ class InteractiveSession(cmd.Cmd):
         welcome_msg += "Your username is {}.".format(self.username)
         welcome_msg += ")"
 
-        print welcome_msg
+        six.print_(welcome_msg)
 
     def default(self, line):
         self.do_say(line)
 
     def do_say(self, line):
         response = self.server.say(line)
-        print response
+        six.print_(response)
 
     def do_EOF(self, line):
         return True
@@ -47,25 +48,25 @@ class InteractiveSession(cmd.Cmd):
     def do_server(self, line):
         self.servername = line
         self.connect_to_server()
-        print "(Changed server to {})".format(line)
+        six.print_("(Changed server to {})".format(line))
 
     def do_port(self, line):
         self.port = line
         self.connect_to_server()
-        print "(Changed port to {})".format(line)
+        six.print_("(Changed port to {})".format(line))
 
     def do_botname(self, line):
         self.botname = line
         self.connect_to_server()
-        print "(Changed botname to {})".format(line)
+        six.print_("(Changed botname to {})".format(line))
 
     def do_username(self, line):
         self.username = line
         self.connect_to_server()
-        print "(Changed username to {})".format(line)
+        six.print_("(Changed username to {})".format(line))
 
     def do_quit(self, line):
-        print "(Closing connection)"
+        six.print_("(Closing connection)")
         return True
     
     def emptyline(self):

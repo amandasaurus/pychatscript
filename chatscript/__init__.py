@@ -5,4 +5,4 @@ __email__ = 'rory@technomancy.org'
 __version__ = '0.1.0'
 
 from .server import *
-from interactive_session import *
+from .interactivesession import *
