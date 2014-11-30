@@ -10,10 +10,10 @@ Tests for `pychatscript` module.
 
 import unittest
 
-from chatscript import chatscript
+import chatscript
 
 
-class TestChatscript(unittest.TestCase):
+class TestChatScript(unittest.TestCase):
 
     def setUp(self):
         pass
